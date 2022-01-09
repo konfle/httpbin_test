@@ -1,9 +1,7 @@
 # Test Execution
 
-## PyCharm 2021.3 (Community Edition)
-
 ---
-One of the simplest ways to execute all tests is type in IDE terminal:
+One of the simplest ways to execute all tests is type:
 
 `pytest -v .\test_post_and_get_httpbin.py` 
 
