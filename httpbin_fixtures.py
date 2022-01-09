@@ -5,6 +5,7 @@ ip_addresses = ["10.32.3",
                 "192.168.0.1.2",
                 "192.168.10.256",
                 "10.58.15.-1"]
+payloads_list = []
 
 
 @pytest.fixture
