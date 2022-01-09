@@ -1,7 +1,7 @@
 import pytest
 import ipaddress
 import requests
-from httpbin_fixtures import origin_ip, origin_user_agent, origin_ip_without_fixutre, ip_addresses
+from httpbin_fixtures import origin_ip, origin_user_agent, origin_ip_without_fixutre, ip_addresses, payloads_list
 
 
 @pytest.mark.parametrize("ip_test", ip_addresses)
@@ -14,20 +14,13 @@ def test_user_agent(origin_user_agent):
     assert origin_user_agent == "python-requests/2.26.0"
 
 
-def test_response_form(origin_ip, origin_user_agent):
+@pytest.mark.parametrize("payload_", payloads_list)
+def test_response_form(payload_, origin_user_agent):
     url = "https://httpbin.org/post"
 
-    payload = {
-        "accountName": "konfle",
-        "characterName": "BatoN",
-        "characterClass": "Sorceress",
-        "serverRegion": "Europe",
-        "gameMode": "Hardcore"
-    }
-
-    r = requests.post(url, data=payload)
+    r = requests.post(url, data=payload_)
     response = r.json()
-    expected_result = payload
+    expected_result = payload_
 
     assert r.status_code == 200
     assert response["form"] == expected_result
