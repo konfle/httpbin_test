@@ -3,7 +3,7 @@ import pytest
 
 
 @pytest.fixture
-def get_ip():
+def origin_ip():
     url = "https://httpbin.org/ip"
 
     response = requests.request("GET", url)
@@ -13,7 +13,7 @@ def get_ip():
 
 
 @pytest.fixture
-def get_user_agent():
+def origin_user_agent():
     url = "https://httpbin.org/user-agent"
 
     response = requests.request("GET", url)

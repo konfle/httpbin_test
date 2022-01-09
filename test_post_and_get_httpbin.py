@@ -1,8 +1,8 @@
 import requests
-from httpbin_fixtures import get_ip, get_user_agent
+from httpbin_fixtures import origin_ip, origin_user_agent
 
 
-def test_post_data(get_ip, get_user_agent):
+def test_post_data(origin_ip, origin_user_agent):
     url = "https://httpbin.org/post"
 
     payload = {
@@ -34,11 +34,11 @@ def test_post_data(get_ip, get_user_agent):
             "Content-Length": "101",
             "Content-Type": "application/x-www-form-urlencoded",
             "Host": "httpbin.org",
-            "User-Agent": f"{get_user_agent}",
+            "User-Agent": f"{origin_user_agent}",
             "X-Amzn-Trace-Id": f"{current_trace_id}"
         },
         "json": None,
-        "origin": f"{get_ip}",
+        "origin": f"{origin_ip}",
         "url": "https://httpbin.org/post"
     }
 
@@ -46,7 +46,7 @@ def test_post_data(get_ip, get_user_agent):
     assert response == expected_result
 
 
-def test_get_data(get_ip, get_user_agent):
+def test_get_data(origin_ip, origin_user_agent):
     url = "https://httpbin.org/get"
 
     payload = {
@@ -74,10 +74,10 @@ def test_get_data(get_ip, get_user_agent):
             "Accept": "*/*",
             "Accept-Encoding": "gzip, deflate",
             "Host": "httpbin.org",
-            "User-Agent": f"{get_user_agent}",
+            "User-Agent": f"{origin_user_agent}",
             "X-Amzn-Trace-Id": f"{current_trace_id}"
         },
-        "origin": f"{get_ip}",
+        "origin": f"{origin_ip}",
         "url": f"{body_url}"
     }
 
