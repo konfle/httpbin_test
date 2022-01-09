@@ -2,7 +2,6 @@ import requests
 import pytest
 
 
-@pytest.fixture
 def origin_ip():
     url = "https://httpbin.org/ip"
 
