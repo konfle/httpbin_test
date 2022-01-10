@@ -4,7 +4,7 @@ import random
 
 ip_addresses = []
 payloads_list = []
-payload_number = 6
+payload_number = 3
 ok_ip_number = 3
 
 

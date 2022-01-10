@@ -27,20 +27,13 @@ def test_response_form(payload_, origin_user_agent):
     assert response["headers"]["User-Agent"] == origin_user_agent
 
 
-def test_response_args(origin_ip, origin_user_agent):
+@pytest.mark.parametrize("payload_", payloads_list)
+def test_response_args(payload_, origin_user_agent):
     url = "https://httpbin.org/get"
 
-    payload = {
-        "accountName": "konfle",
-        "characterName": "BatoN",
-        "characterClass": "Sorceress",
-        "gameMode": "Hardcore",
-        "serverRegion": "Europe"
-    }
-
-    r = requests.get(url, params=payload)
+    r = requests.get(url, params=payload_)
     response = r.json()
-    expected_result = payload
+    expected_result = payload_
 
     assert r.status_code == 200
     assert response["args"] == expected_result
