@@ -5,17 +5,7 @@ import random
 ip_addresses = []
 payloads_list = []
 payload_number = 3
-ok_ip_number = 3
-
-
-@pytest.fixture
-def origin_ip():
-    url = "https://httpbin.org/ip"
-
-    response = requests.request("GET", url)
-    ip = response.json()
-
-    return ip["origin"]
+number_of_ip = 3
 
 
 @pytest.fixture
@@ -66,7 +56,8 @@ for i in range(payload_number):
 
 def ip_generator():
     octets = []
-    for j in range(4):
+    number_of_octet = random.randint(1, 4)
+    for i in range(number_of_octet):
         number = random.randint(0, 255)
         octets.append(str(number))
 
@@ -74,6 +65,6 @@ def ip_generator():
     return ip_output
 
 
-for address in range(ok_ip_number):
+for address in range(number_of_ip):
     ip_tmp = ip_generator()
     ip_addresses.append(ip_tmp)
