@@ -7,7 +7,7 @@ Test case
 The tested platform is https://httpbin.org 
 
 Endpoint overview:
-https://httpbin.org/ip -> Returns the IP address 
+https://httpbin.org/ip -> Returns the IP address <br />
 https://httpbin.org/user-agent -> Returns the user agent.
 https://httpbin.org/get -> Returns GET data sent in a URL
 https://httpbin.org/post -> Returns POST data
