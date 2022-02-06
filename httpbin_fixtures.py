@@ -49,7 +49,7 @@ def payload_generator():
     return payload
 
 
-for i in range(payload_number):
+for _ in range(payload_number):
     payload_tmp = payload_generator()
     payloads_list.append(payload_tmp)
 
@@ -57,7 +57,7 @@ for i in range(payload_number):
 def ip_generator():
     octets = []
     number_of_octet = random.randint(1, 4)
-    for i in range(number_of_octet):
+    for _ in range(number_of_octet):
         number = random.randint(0, 255)
         octets.append(str(number))
 
