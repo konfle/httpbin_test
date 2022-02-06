@@ -13,5 +13,3 @@ https://httpbin.org/get -> Returns GET data sent in a URL
 https://httpbin.org/post -> Returns POST data
 
 The result of the work is working source code along with a description of how to run it.
-
-Translated with www.DeepL.com/Translator (free version)
