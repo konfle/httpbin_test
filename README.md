@@ -2,7 +2,7 @@
 
 ---
 
-##Test automation with Pytest framework
+#Test automation with Pytest framework
 
 The tested platform is https://httpbin.org 
 
